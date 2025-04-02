@@ -29,7 +29,7 @@ public class ManageFooterTextPageTest extends Base {
 		String address = ExelUtility.readName(1, 2, "Managefooterpage");
 
 		String email = ExelUtility.readName(1, 3, "Managefooterpage");
-		String phonenumber = ExelUtility.getId(1, 4, "Managefooterpage");
+		//String phonenumber = ExelUtility.getId(1, 4, "Managefooterpage");
 
 		footertextpage.editfooterdata(address, email," 897898654").clickOnUbdate();
 		boolean alert = footertextpage.isAlertDisplayed();

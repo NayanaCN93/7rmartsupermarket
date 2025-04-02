@@ -25,13 +25,12 @@ public class CategoryPageTest extends Base {
 		String username = ExelUtility.readName(1, 0, "Categorypage");
 		String password = ExelUtility.readName(1, 1, "Categorypage");
 		loginpage.enterUsernameAndPassword(username, password);
-
+		
 		homepage = loginpage.clicksignin();
 		categorypage = homepage.clickcatogorynmoreinfo();
-		  String category=faker.getFakeCategoryName();
+		String category=faker.getFakeCategoryName();
 		//String category = ExelUtility.readName(1, 2, "Categorypage");
 		categorypage.clickonNew().entercategrydetails(category).clickonsave();
-		
 		boolean alert2 = categorypage.issuccessalertisdisplayed();
 		Assert.assertTrue(alert2, Constant.ERRORMESSAGEFOREXCISTINGDATACREATED);
 

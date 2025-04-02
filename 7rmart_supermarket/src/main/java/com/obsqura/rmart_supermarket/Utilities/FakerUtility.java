@@ -42,6 +42,7 @@ public String getPassword() {
 		Faker faker=new Faker();
 		String phoneNumber=faker.phoneNumber().phoneNumber();
 		return phoneNumber;
+		
 	}
 
 public String getFakeCategoryName() {
