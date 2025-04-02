@@ -25,10 +25,15 @@ public class HomePage {
 	WebElement categoryinfo;
 	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-news'])[2]")
 	WebElement managenewsinfo;
-	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category'])[2]")
+	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-sub-category']")
 	WebElement subcategoryinfo;
-	@FindBy(xpath="(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext'])[2]")
+	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-footertext'])[2]")
 	WebElement footermoreinfo;
+	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-product'])[4]")
+	WebElement productinfo;
+	@FindBy(xpath = "(//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact'])[2]")
+	WebElement contcatinfo;
+
 	public HomePage clickonadmin() {
 		adminicon.click();
 		return this;
@@ -64,8 +69,19 @@ public class HomePage {
 		subcategoryinfo.click();
 		return new SubcategoryPage(driver);
 	}
+
 	public ManageFooterTextPage clickfootermoreinfo() {
 		footermoreinfo.click();
 		return new ManageFooterTextPage(driver);
+	}
+
+	public ManageProductPage clickonproductinfo() {
+		productinfo.click();
+		return new ManageProductPage(driver);
+	}
+
+	public ManageContactPage clickoncontactinfo() {
+		contcatinfo.click();
+		return new ManageContactPage(driver);
 	}
 }

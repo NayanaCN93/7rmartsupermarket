@@ -11,13 +11,16 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.obsqura.rmart_supermarket.Utilities.FileuploadUtility;
 import com.obsqura.rmart_supermarket.Utilities.PageUtility;
 import com.obsqura.rmart_supermarket.Utilities.WaitUtility;
+import com.obsqura.rmart_supermarket.constant.Constant;
 
 public class CategoryPage {
 	public WebDriver driver;
-PageUtility pageutility=new PageUtility();
-WaitUtility waitutility=new WaitUtility();
+	PageUtility pageutility = new PageUtility();
+	WaitUtility waitutility = new WaitUtility();
+
 	public CategoryPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
@@ -31,39 +34,46 @@ WaitUtility waitutility=new WaitUtility();
 	WebElement discountField;
 	@FindBy(xpath = "//input[@id='main_img']")
 	WebElement chooseFileField;
-	@FindBy(xpath = "(//input[@name='show_home'])[2]")
+	@FindBy(xpath = "(//input[@value='no'])[2]")
 	WebElement radiobuttonNo;
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement saveFeild;
-	@FindBy(xpath="//div[@class='alert alert-danger alert-dismissible']") WebElement existalert;
-@FindBy(xpath="//div[@class='alert alert-success alert-dismissible']") WebElement successalert;
+
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']")
+	WebElement successalert;
+
 	public CategoryPage clickonNew() {
 		newField.click();
 		return this;
 	}
 
-	  
 	public CategoryPage entercategrydetails(String categoryname) throws AWTException {
 		enterCategoryField.sendKeys(categoryname);
 		discountField.click();
-		chooseFileField.sendKeys("C:\\Users\\nayan\\OneDrive\\Desktop\\image of book\\bookimage.png");
-		pageutility.javascriptExcevuter(driver,radiobuttonNo);
-		//pageutility.roboClass(driver, chooseFileField);
 		
-		waitutility.elementtobeclikable(driver,radiobuttonNo);
-		radiobuttonNo.click();
+		/*JavascriptExecutor executor=(JavascriptExecutor)driver;
+		executor.executeScript("arguments[0].click;",chooseFileField);*/
+
+		FileuploadUtility fileupload = new FileuploadUtility();
+		fileupload.sendkeysforFileupload(chooseFileField, Constant.IMAGE);
+
+		//fileupload.roboclassforFileupload(chooseFileField, Constant.IMAGE);
+		pageutility.javascriptExcecuter(driver, radiobuttonNo);
+
+		waitutility.elementTobeclikable(driver, radiobuttonNo);
+		//radiobuttonNo.click();
 		return this;
 	}
 
 	public CategoryPage clickonsave() {
-		waitutility.visibilityo(driver,radiobuttonNo);
+		pageutility.javascriptExcecuter(driver,saveFeild);
+		/*JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("window.scrollBy(0,15000)");*/
+		waitutility.elementTobeclikable(driver, saveFeild);
 		saveFeild.click();
 		return this;
 	}
-	public boolean isexistalertdisplayed() {
-		return existalert.isDisplayed();
-		 
-	}
+
 	public boolean issuccessalertisdisplayed() {
 		return successalert.isDisplayed();
 	}
