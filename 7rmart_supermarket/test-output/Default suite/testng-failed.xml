@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.obsqura.rmart_supermarket.testscript.LoginPageTest">
+      <class name="com.obsqura.rmart_supermarket.testscript.SubcategoryPageTest">
         <methods>
+          <include name="verifyThatUserIsAbleToCreateSubcategory"/>
           <include name="afterMethod"/>
           <include name="beforeMethod"/>
-          <include name="InvaliedUsernameAndValidPAssword" invocation-numbers="0 2"/>
         </methods>
-      </class> <!-- com.obsqura.rmart_supermarket.testscript.LoginPageTest -->
+      </class> <!-- com.obsqura.rmart_supermarket.testscript.SubcategoryPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

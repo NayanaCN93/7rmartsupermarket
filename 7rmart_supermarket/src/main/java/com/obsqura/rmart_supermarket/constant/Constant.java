@@ -13,4 +13,5 @@ public static final String EXELPATH=System.getProperty("user.dir")+"//src//test/
 public static final String IMAGE2=System.getProperty("user.dir")+"//src//test//resources//longbook.jpg";
 public static final String ERROEMESSAGEFORSEARCHISFAILED="cannot allow search data";
 public static final String ERRORMESSAGEFORDELETIONISFAILED="cannot be deleted";
+public static final String CONFIGFILE=System.getProperty("user.dir")+"//src//main//resources//config.properties";
 }

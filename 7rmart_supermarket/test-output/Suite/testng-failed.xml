@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
-  <parameter name="password" value="123"/>
-  <parameter name="username" value="admin"/>
   <listeners>
     <listener class-name="com.obsqura.rmart_supermarket.GenerateReport.Listeners"/>
   </listeners>
-  <test thread-count="5" name="ExtendReport.xml(failed)">
+  <test thread-count="5" name="chrometest(failed)">
+    <parameter name="Browser" value="chrome"/>
     <classes>
       <class name="com.obsqura.rmart_supermarket.testscript.LoginPageTest">
         <methods>
           <include name="afterMethod"/>
           <include name="beforeMethod"/>
-          <include name="InvaliedUsernameAndValidPAssword" invocation-numbers="2"/>
+          <include name="validUsernameAndPassword"/>
         </methods>
       </class> <!-- com.obsqura.rmart_supermarket.testscript.LoginPageTest -->
     </classes>
-  </test> <!-- ExtendReport.xml(failed) -->
+  </test> <!-- chrometest(failed) -->
+  <test thread-count="5" name="edgetest(failed)">
+    <parameter name="Browser" value="edge"/>
+    <classes>
+      <class name="com.obsqura.rmart_supermarket.testscript.LoginPageTest">
+        <methods>
+          <include name="afterMethod"/>
+          <include name="beforeMethod"/>
+          <include name="validUsernameAndPassword"/>
+        </methods>
+      </class> <!-- com.obsqura.rmart_supermarket.testscript.LoginPageTest -->
+    </classes>
+  </test> <!-- edgetest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

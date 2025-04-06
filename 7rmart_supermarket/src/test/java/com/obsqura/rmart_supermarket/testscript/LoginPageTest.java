@@ -16,7 +16,7 @@ public class LoginPageTest extends Base{
 	public LoginPage loginpage;
 	public HomePage homepage;
 	
-  @Test
+  @Test(groups="smoke")
   public void validUsernameAndPassword() throws Exception {
 	  LoginPage loginpage=new LoginPage(driver);
 		String username = ExelUtility.readName(1, 0, "Loginpage");
@@ -30,7 +30,7 @@ public class LoginPageTest extends Base{
 	  System.out.println(actual);
 	  Assert.assertEquals(actual,expected,Constant.ERRORMESSAGEFORLOGIN);
   }
-  @Test
+  @Test(groups="smoke")
   public void InvalidUsernameAndPassword() throws Exception {
 	  LoginPage loginpage=new LoginPage(driver);
 	  String username=ExelUtility.getId(2,0,"Loginpage");//getid is for numeric value
